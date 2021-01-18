@@ -2,6 +2,8 @@
 
 <img src="../image/image-20201220134952074.png" alt="image-20201220134952074" />
 
+异常链：cause
+
 实现了AutoCloseable接口：try-with-resources
 
 Closeable继承自AutoCloseable
