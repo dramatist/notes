@@ -6,6 +6,8 @@
 
 字段或方法必须定义在enum实例之后
 
+enum作为内部类时是static的
+
 enum不能和泛型结合
 
 enum实现了Comparable接口，比较实例的ordinal
