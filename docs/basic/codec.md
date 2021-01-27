@@ -19,3 +19,5 @@ UTF-16和UTF-32有大端序和小端序
 Java及网络传输采用的是大端序，C/C++使用的是小端序
 
 URL编解码：RFC1738规定，除了字母、数字、$-_.+!*'(),、保留字，其它字符需要在url中编码，常用编码方式有escape，URLEncode，encodeURIComponent
+
+properties文件读取编码为IOS 8859-1，读取中文乱码
