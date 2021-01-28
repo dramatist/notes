@@ -56,3 +56,7 @@ ApplicationContext除了提供IOC能力，还提供
 * 国际化 i18n
 * 注解 Annotations
 * Environment抽象
+
+BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
+
+BeanPostProcessor和BeanFactoryPostProcessor，BeanFactory需要手动注册，ApplicationContext则是自动注册

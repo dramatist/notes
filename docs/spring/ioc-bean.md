@@ -96,7 +96,7 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 ## Bean生命周期
 
-### Bean元信息配置
+### BeanDefinition元信息配置
 
 面向资源：XML、Properties、Groovy
 
@@ -104,7 +104,7 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 面向API：BeanDefinitionBuilder / AbstractBeanDefinition
 
-### Bean元信息解析 
+### BeanDefinition元信息解析 
 
 面向资源：BeanDefinitionReader------------>BeanDefinitionParser  
 
@@ -141,8 +141,7 @@ ConfigurableListable#setTempClassLoader
 * 实例化前
     * InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation
 * 实例化
-    * 传统
-        * 实例化策略：InstantiationStrategy
+    * 实例化策略：InstantiationStrategy
     * 构造器依赖注入
 * 实例化后
     * InstantiationAwareBeanPostProcessor#postProcessAfterInstantiation
@@ -152,7 +151,8 @@ ConfigurableListable#setTempClassLoader
 PropertyValues
 
 * 赋值前
-    * InstantiationAwareBeanPostProcessor#postProcessProperties
+    * Spring5.0 InstantiationAwareBeanPostProcessor#postProcessPropertyValues
+    * Spring5.1 InstantiationAwareBeanPostProcessor#postProcessProperties
 * 赋值
 
 ### Aware回调
@@ -161,13 +161,19 @@ PropertyValues
     * BeanNameAware
     * BeanClassLoaderAware
     * BeanFactoryAware
-* ApplicationContext
+* ApplicationContext       ApplicationContextAwareProcessor#postProcessBeforeInitialization
     * EnvironmentAware
     * EmbeddedValueResolverAware
     * ResouceLoaderAware
     * ApplicationEventPublisherAware
     * MessageSourceAware
     * ApplicationContextAware
+
+### Bean初始化
+
+BeanPostProcessor#postProcessBeforeInitialization
+
+BeanPostProcessor#postProcessAfterInitialization
 
 @Bean
 
