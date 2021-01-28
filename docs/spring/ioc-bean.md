@@ -1,7 +1,5 @@
 ## BeanDefinition
 
-元信息
-
 1. 类全名，通常是具体类
 2. Bean行为配置，如生命周期回调、作用域、延迟初始化
 3. Bean依赖
@@ -9,17 +7,17 @@
 
 ## BeanDefinition注册及实例化
 
-register Instantiation
+Instantiation
 
 1. XML
 
-    constructor-arg
+    \<bean constructor-arg /\>
 
-    静态工厂
+    \<bean class = ""   factory-method="" /\>
 
-    实例工厂
+    \<bean factory-bean=""  factory-method="" /\>
 
-2. Java注解
+2. 注解
 
     @Component
 
@@ -37,7 +35,7 @@ register Instantiation
 
 FactoryBean
 
-ServiceLoaderFactoryBean/ServiceFactoryBean/ServiceListFactoryBean
+ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
 
 特殊方式（非BeanDefinition模式）
 * AutowireCapableBeanFactory#createBean
@@ -63,9 +61,9 @@ Destroy
 * PreDestory
 * 实现DisposableBean接口的destory方法
 * 自定义
-    * XML \<bean destory="" />
-    * Java注解  @Bean(destory="")
-    * Java API   AbstractBeanDefinition#setDestoryMethodName
+    * XML \<bean destory-method="" />
+    * 注解  @Bean(destoryMethod="")
+    * API   AbstractBeanDefinition#setDestoryMethodName
 
 思考：假设以上三种方式均在同一bean中定义，这些方法的执行顺序是怎样的
 
@@ -73,7 +71,7 @@ Destroy
 
 @Lazy
 
-<bean lazy-init=”true” ... />
+\<bean lazy-init="true" /\>
 
 ## Bean Scope
 
@@ -98,7 +96,7 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 ## Bean生命周期
 
-### 元信息配置
+### Bean元信息配置
 
 面向资源：XML、Properties、Groovy
 
@@ -106,7 +104,7 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 面向API：BeanDefinitionBuilder / AbstractBeanDefinition
 
-### 元信息解析 
+### Bean元信息解析 
 
 面向资源：BeanDefinitionReader------------>BeanDefinitionParser  
 
@@ -114,11 +112,62 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 BeanNameGenerator
 
-### 元信息注册
+BeanDefinitionHolder
 
-BeanDefinitionRegistry
+### Bean注册
 
+BeanDefinitionRegistry#registerBeanDefinition
 
+SingletonBeanRegistry#registerSingleton
+
+### BeanDefinition合并
+
+ConfigurableBeanFactory#getMergedBeanDefinition
+
+GenericBeanDefinition------->RootBeanDefinition------->MergedBeanDefinition
+
+AnnotatedBeanDefinition
+
+### Bean Class加载
+
+ClassLoader
+
+Java SecurityManager
+
+ConfigurableListable#setTempClassLoader
+
+### Bean实例化
+
+* 实例化前
+    * InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation
+* 实例化
+    * 传统
+        * 实例化策略：InstantiationStrategy
+    * 构造器依赖注入
+* 实例化后
+    * InstantiationAwareBeanPostProcessor#postProcessAfterInstantiation
+
+### Bean属性赋值
+
+PropertyValues
+
+* 赋值前
+    * InstantiationAwareBeanPostProcessor#postProcessProperties
+* 赋值
+
+### Aware回调
+
+* BeanFactory
+    * BeanNameAware
+    * BeanClassLoaderAware
+    * BeanFactoryAware
+* ApplicationContext
+    * EnvironmentAware
+    * EmbeddedValueResolverAware
+    * ResouceLoaderAware
+    * ApplicationEventPublisherAware
+    * MessageSourceAware
+    * ApplicationContextAware
 
 @Bean
 
