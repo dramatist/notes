@@ -171,9 +171,25 @@ PropertyValues
 
 ### Bean初始化
 
-BeanPostProcessor#postProcessBeforeInitialization
+* 初始化前
+    * BeanPostProcessor#postProcessBeforeInitialization
+    * @PreDestory    CommonAnnotationBeanPostProcessor#postProcessBeforeInitialization
+* 初始化
+    * InitializingBean
+    * 自定义初始化方法
 
-BeanPostProcessor#postProcessAfterInitialization
+* 初始化后
+    * BeanPostProcessor#postProcessAfterInitialization
+* 初始化完成
+    * ​	Spring4.1 SmartInitializingSingleton#afterSingletonsInstantiated
+
+### Bean销毁
+
+* 销毁前
+    * DestructionAwareBeanPostProcessor#postProcessBeforeDesturction
+    * 
+
+
 
 @Bean
 
