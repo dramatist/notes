@@ -173,7 +173,7 @@ PropertyValues
 
 * 初始化前
     * BeanPostProcessor#postProcessBeforeInitialization
-    * @PreDestory    CommonAnnotationBeanPostProcessor#postProcessBeforeInitialization
+    * @PostConstruct    CommonAnnotationBeanPostProcessor#postProcessBeforeInitialization
 * 初始化
     * InitializingBean
     * 自定义初始化方法
@@ -187,7 +187,10 @@ PropertyValues
 
 * 销毁前
     * DestructionAwareBeanPostProcessor#postProcessBeforeDesturction
-    * 
+    * @PreDestroy    CommonAnnotationBeanPostProcessor#postProcessAfterInitialization
+* 销毁
+    * DisposableBean
+    * 自定义销毁方法
 
 
 

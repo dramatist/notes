@@ -24,6 +24,8 @@
 
 <img src="../image/image-20201217171223282.png" alt="image-20201217171223282" style="zoom:50%;" />
 
+### 代码质量维度
+
 1. 可维护性：在不破坏原有代码设计、不引入新的bug的情况下，能快速修改或添加代码
 
 2. 可扩展性：不修改或少量修改原有代码的情况下，通过扩展的方式添加新的功能代码
@@ -37,10 +39,4 @@
 6. 灵活性：易扩展，易复用
 
 7. 简洁性：KISS原则  Keep it simple，stupid
-
-### 编程规范
-
-Google Java Style Guide
-
-Alibaba Java Code Style
 
