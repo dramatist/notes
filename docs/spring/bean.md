@@ -1,13 +1,9 @@
-## BeanDefinition
-
 1. 类全名，通常是具体类
 2. Bean行为配置，如生命周期回调、作用域、延迟初始化
 3. Bean依赖
 4. 属性配置，如线程池大小、连接数等
 
-## BeanDefinition注册及实例化
-
-Instantiation
+## BeanDefinition注册及实例化Instantiation
 
 1. XML
 
@@ -41,9 +37,7 @@ ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
 * AutowireCapableBeanFactory#createBean
 * SingletonBeanRegistry#registerSingleton
 
-## Bean初始化
-
-Initialization
+## Bean初始化Initialization
 
 * @PostConstruct
 * 实现InitializingBean接口的afterPropertiesSet方法
@@ -52,20 +46,14 @@ Initialization
     * Java注解   @Bean(initMethod="")
     * Java API  AbstractBeanDefinition#setInitMethodName
 
-思考：假设以上三种方式均在同一bean中定义，这些方法的执行顺序是怎么样的
+## Bean销毁Destroy
 
-## Bean销毁
-
-Destroy
-
-* PreDestory
+* @PreDestory
 * 实现DisposableBean接口的destory方法
 * 自定义
     * XML \<bean destory-method="" />
     * 注解  @Bean(destoryMethod="")
     * API   AbstractBeanDefinition#setDestoryMethodName
-
-思考：假设以上三种方式均在同一bean中定义，这些方法的执行顺序是怎样的
 
 ## Bean延迟初始化
 
