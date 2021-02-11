@@ -1,5 +1,3 @@
-# Object
-
 ## equals  hashcode
 
 equals特性
