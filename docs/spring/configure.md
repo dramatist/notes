@@ -4,7 +4,7 @@
     * 基于XML/Properties
     * 基于Java注解
     * 基于JavaAPI
-    * Groovy DSL
+    * 基于Groovy DSL
 * 容器配置
     * 基于XML
     * 基于Java注解
@@ -14,13 +14,13 @@
 
 ### 配置元信息
 
-BeanDefinition---------Bean配置元信息
+Bean配置元信息：BeanDefinition
 
-PropertyValues--------Bean属性元信息
+Bean属性元信息：PropertyValues
 
-PropertySource-------外部化配置元信息
+外部化配置元信息：PropertySource
 
-@Profile------------------Profile元信息
+Profile元信息：@Profile
 
 IOC容器元信息
 
@@ -37,13 +37,29 @@ AnnotatedBeanDefinition：注解标注的BeanDefinition
 PropertyValues
 
 * 可变实现：MutablePropertyValues
-* 内部元素：PropertyValue   1-----N
+* 内部元素：PropertyValue
 
 附加信息：
 
 * AttributeAccessor：BeanDefinition的辅助信息
 
 * BeanMetadataElement：BeanDefinition的Source
+
+### 外部化配置
+
+注解
+
+* @PropertySource
+
+* @PropertySources
+
+API
+
+* PropertySource
+
+* PropertySources
+
+未提供Yaml直接支持，可使用YamlProcessor
 
 ### 容器配置元信息
 
@@ -82,20 +98,3 @@ AnnotatedBeanDefinitionReader
 
 BeanDefinitionRegistry
 
-### 外部化配置
-
-注解
-
-* @PropertySource
-
-* @PropertySources
-
-API
-
-* PropertySource
-
-* PropertySources
-
-PropertyPropertySource
-
-未提供Yaml直接支持，可使用YamlProcessor

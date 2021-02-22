@@ -1,4 +1,4 @@
-## 依赖查找
+### 依赖查找
 
 * 查找方式
 
@@ -10,7 +10,7 @@
 * 查找类型
 
     * 实时查找
-    * 延迟查找
+    * 延迟查找        ObjectFactory/ObjectProvider 
 
 * 查找分类
 
@@ -34,15 +34,13 @@
 
         Spring            HierarchicalBeanFactory     
 
-ObjectFactory/ObjectProvider 
-
 ObjectFactoryCreatingFactoryBean
 
 BeanFactoryUtils
 
 getBean线程安全，在操作中会加互斥锁
 
-## 依赖注入
+### 依赖注入
 
 * 注入方式
     * 根据Bean名称注入
@@ -56,7 +54,7 @@ getBean线程安全，在操作中会加互斥锁
 
 使用构造器注入，并想通过名字匹配时，需要开启-parameters，会保留方法参数名，也可使用@ConstructorProperties
 
-### 依赖处理
+#### 依赖处理
 
 DefaultListableBeanFactory#resolveDependency
 
@@ -64,7 +62,7 @@ DependencyDescriptor
 
 AutowireCandidateResolver
 
-### autowiring
+#### autowiring
 
 * no
 * byName
@@ -73,19 +71,16 @@ AutowireCandidateResolver
 
 不能注入primitive、String、Class、这些类型的数组
 
-## 依赖来源
+### 依赖来源
 
 | 来源                 | Bean对象 | 生命周期回调 | 配置元信息 | 适用场景   |
 | -------------------- | -------- | ------------ | ---------- | ---------- |
 | BeanDefinition       | 是       | 是           | 有         | 查找、注入 |
 | Singleton            | 是       | 否           | 无         | 查找、注入 |
 | ResolvableDependency | 否       | 否           | 无         | 注入       |
+| 外部化配置@Value     | 否       | 否           | 无         | 注入       |
 
-外部化配置@Value
-
-### 容器内建Bean
-
-AbstractApplicationContext#preparaBeanFactory & initMessageSource ...   内建SingletonObject
+AbstractApplicationContext#preparaBeanFactory & initMessageSource ...   内建Singleton
 
 | Bean名称                    | Bean实例                    | 使用场景             |
 | --------------------------- | --------------------------- | -------------------- |
@@ -107,19 +102,60 @@ AnnotationConfigUtils#registerBeanPostProcessor   内建BeanDefinition
 | org.springframework.context.event.<br>internalEventListenerFactory | DefaultEventListenerFactory            | @EventListener 事件监听方法适配为ApplicationListener |
 | org.springframework.context.annotation.<br>internalPersistenceAnnotationProcessor | PersistenceAnnotationBeanPostProcessor | JPA注解处理                                          |
 
-### ResolvableDependency
+AbstractApplicationContext#prepareBeanFactory   内建ResolvableDependency  
 
-AbstractApplicationContext#prepareBeanFactory
+| Class                     | 实例                            |
+| ------------------------- | ------------------------------- |
+| BeanFactory               | ConfigurableListableBeanFactory |
+| ApplicationContext        | 当前ApplicationContext          |
+| ResourceLoader            | 当前ApplicationContext          |
+| ApplicationEventPublisher | 当前ApplicationContext          |
 
-BeanFactory
+### Method Injection
 
-ApplicationContext
+单例Bean A依赖多例Bean B，A每次需要获取一个新B
 
-ResourceLoader
+解决方法：
 
-ApplicationEventPublisher
+1. 实现ApplicationContextAware，调用getBean方法
+2. ObjectFactory/ObjectProvider
+3. Lookup Method Injection：Cglib字节码增强，不能和Factory method和@Bean兼容
 
-## 常见异常
+<public|protected>  [abstract]  \<return-type\>  methodName(no-arguments);
+
+```java
+public abstract class CommandManager {
+    public Object process(Object commandState) {
+        Command command = createCommand();
+        command.setState(commandState);
+        return command.execute();
+    }
+	@Lookup("myCommand")
+    protected abstract Command createCommand();
+}
+```
+
+```xml
+<bean id="myCommand" class="AsyncCommand" scope="prototype" />
+<bean id="commandManager" class="CommandManager">
+    <lookup-method name="createCommand" bean="myCommand"/>
+</bean>
+```
+
+#### Method Replacer
+
+通过实现MethodReplacer的类替换任意方法
+
+```xml
+<bean id="myValueCalculator" class="MyValueCalculator">
+    <replaced-method name="computeValue" replacer="replacementComputeValue">
+        <arg-type>java.lang.String</arg-type>
+    </replaced-method>
+</bean>
+<bean id="replacementComputeValue" class="ReplacementComputeValue"/>
+```
+
+### 常见异常
 
 NoSuchBeanDefinition
 

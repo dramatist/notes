@@ -3,7 +3,7 @@
 3. Bean依赖
 4. 属性配置，如线程池大小、连接数等
 
-## BeanDefinition注册及实例化Instantiation
+### BeanDefinition注册及实例化Instantiation
 
 1. XML
 
@@ -37,7 +37,7 @@ ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
 * AutowireCapableBeanFactory#createBean
 * SingletonBeanRegistry#registerSingleton
 
-## Bean初始化Initialization
+### Bean初始化Initialization
 
 * @PostConstruct
 * 实现InitializingBean接口的afterPropertiesSet方法
@@ -46,7 +46,7 @@ ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
     * Java注解   @Bean(initMethod="")
     * Java API  AbstractBeanDefinition#setInitMethodName
 
-## Bean销毁Destroy
+### Bean销毁Destroy
 
 * @PreDestory
 * 实现DisposableBean接口的destory方法
@@ -55,13 +55,13 @@ ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
     * 注解  @Bean(destoryMethod="")
     * API   AbstractBeanDefinition#setDestoryMethodName
 
-## Bean延迟初始化
+### Bean延迟初始化
 
 @Lazy
 
 \<bean lazy-init="true" /\>
 
-## Bean Scope
+### Bean Scope
 
 1. singleton     默认，一个BeanFactory上下文有且只有一个实例
 2. prototype   每次依赖查找或注入生成一个新的Bean
@@ -74,7 +74,7 @@ request、session、application主要用于模版引擎
 
 prototype的bean的销毁生命周期回调不会由容器管理
 
-#### BeanDefinition继承
+### BeanDefinition继承
 
 构造器参数、属性、initMethod、destoryMethod、factory method、scope、class
 
@@ -82,9 +82,9 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 当父bean未指定class时，设置abstract=true
 
-## Bean生命周期
+### Bean生命周期
 
-### BeanDefinition元信息配置
+#### BeanDefinition元信息配置
 
 面向资源：XML、Properties、Groovy
 
@@ -92,7 +92,7 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 面向API：BeanDefinitionBuilder / AbstractBeanDefinition
 
-### BeanDefinition元信息解析 
+#### BeanDefinition元信息解析 
 
 面向资源：BeanDefinitionReader------------>BeanDefinitionParser  
 
@@ -102,13 +102,13 @@ BeanNameGenerator
 
 BeanDefinitionHolder
 
-### Bean注册
+#### Bean注册
 
 BeanDefinitionRegistry#registerBeanDefinition
 
 SingletonBeanRegistry#registerSingleton
 
-### BeanDefinition合并
+#### BeanDefinition合并
 
 ConfigurableBeanFactory#getMergedBeanDefinition
 
@@ -116,7 +116,7 @@ GenericBeanDefinition------->RootBeanDefinition------->MergedBeanDefinition
 
 AnnotatedBeanDefinition
 
-### Bean Class加载
+#### Bean Class加载
 
 ClassLoader
 
@@ -124,7 +124,7 @@ Java SecurityManager
 
 ConfigurableListable#setTempClassLoader
 
-### Bean实例化
+#### Bean实例化
 
 * 实例化前
     * InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation
@@ -134,7 +134,7 @@ ConfigurableListable#setTempClassLoader
 * 实例化后
     * InstantiationAwareBeanPostProcessor#postProcessAfterInstantiation
 
-### Bean属性赋值
+#### Bean属性赋值
 
 PropertyValues
 
@@ -143,7 +143,7 @@ PropertyValues
     * Spring5.1 InstantiationAwareBeanPostProcessor#postProcessProperties
 * 赋值
 
-### Aware回调
+#### Aware回调
 
 * BeanFactory
     * BeanNameAware
@@ -157,7 +157,7 @@ PropertyValues
     * MessageSourceAware
     * ApplicationContextAware
 
-### Bean初始化
+#### Bean初始化
 
 * 初始化前
     * BeanPostProcessor#postProcessBeforeInitialization
@@ -171,7 +171,7 @@ PropertyValues
 * 初始化完成
     * ​	Spring4.1 SmartInitializingSingleton#afterSingletonsInstantiated
 
-### Bean销毁
+#### Bean销毁
 
 * 销毁前
     * DestructionAwareBeanPostProcessor#postProcessBeforeDesturction
@@ -179,6 +179,8 @@ PropertyValues
 * 销毁
     * DisposableBean
     * 自定义销毁方法
+
+@Component
 
 @Bean
 
@@ -194,4 +196,3 @@ PropertyValues
 
 @Qualifier
 
-@Component

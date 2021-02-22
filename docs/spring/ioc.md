@@ -8,7 +8,9 @@
 
 ## 为什么要使用IOC容器
 
+对象通过构造器参数、setter方法、工厂方法定义其所需依赖，容器在创建对象时注入依赖，而非手动提供依赖
 
+代码整洁，解耦，易测试
 
 ## IOC容器职责
 
@@ -43,9 +45,7 @@
 
 ## BeanFactory和ApplicationContext
 
-BeanFactory不对配置格式或注解做限制，而是通过BeanDefinitionReader或BeanPostProcessor进行扩展
-
-ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory实例   代理
+BeanFactory提供了先进的配置机制，能管理所有类型的对象
 
 ApplicationContext除了提供IOC能力，还提供
 
@@ -53,9 +53,13 @@ ApplicationContext除了提供IOC能力，还提供
 * 配置元信息 Configuration Metadata
 * 资源管理 Resources
 * 事件 Events
-* 国际化 i18n
+* 国际化 i18n  MessageSource
 * 注解 Annotations
 * Environment抽象
+
+BeanFactory不对配置格式或注解做限制，而是通过BeanDefinitionReader或BeanPostProcessor进行扩展
+
+ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory实例   代理
 
 BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
 
