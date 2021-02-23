@@ -46,6 +46,8 @@ ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
     * Java注解   @Bean(initMethod="")
     * Java API  AbstractBeanDefinition#setInitMethodName
 
+多种方式指定同一个方法，只会执行一次
+
 ### Bean销毁Destroy
 
 * @PreDestory
@@ -55,15 +57,15 @@ ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
     * 注解  @Bean(destoryMethod="")
     * API   AbstractBeanDefinition#setDestoryMethodName
 
+多种方式指定同一个方法，只会执行一次
+
 ### Bean延迟初始化
 
-@Lazy
-
-\<bean lazy-init="true" /\>
+@Lazy     \<bean lazy-init="true" /\>
 
 ### Bean Scope
 
-1. singleton     默认，一个BeanFactory上下文有且只有一个实例
+1. singleton     默认，一个容器上下文有且只有一个实例
 2. prototype   每次依赖查找或注入生成一个新的Bean
 3. request       ServletRequest上下文
 4. session        HttpSession上下文
@@ -74,13 +76,7 @@ request、session、application主要用于模版引擎
 
 prototype的bean的销毁生命周期回调不会由容器管理
 
-### BeanDefinition继承
-
-构造器参数、属性、initMethod、destoryMethod、factory method、scope、class
-
-其余不继承，如depends on、lazy、aotuwire mode
-
-当父bean未指定class时，设置abstract=true
+#### Custom Scope
 
 ### Bean生命周期
 
