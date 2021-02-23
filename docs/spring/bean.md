@@ -1,3 +1,5 @@
+### BeanDefinition
+
 1. 类全名，通常是具体类
 2. Bean行为配置，如生命周期回调、作用域、延迟初始化
 3. Bean依赖
@@ -29,7 +31,7 @@
 
     AnnotatedBeanDefinitionReader#register
 
-FactoryBean
+FactoryBean：实现复杂初始化逻辑
 
 ServiceLoaderFactoryBean、ServiceFactoryBean、ServiceListFactoryBean
 
@@ -76,7 +78,21 @@ request、session、application主要用于模版引擎
 
 prototype的bean的销毁生命周期回调不会由容器管理
 
-#### Custom Scope
+#### 自定义作用域
+
+### 扩展点
+
+Ordered接口或@Order，定义顺序
+
+BeanPostProcessor：通常用来检查接口回调，或用代理包装bean对象
+
+ApplicationContext在生命周期中会将类型为BeanPostProcessor子类的Bean注册，而BeanFactory不会
+
+手动注册的BeanPostProcessor不遵循Order，且永远比自动检测到的BeanPostProcessor先执行，手动注册的执行顺序和注册顺序一致
+
+BeanFactoryPostProcessor
+
+Bean(Factory)PostProcessor设置lazy-init会被忽略
 
 ### Bean生命周期
 
@@ -157,7 +173,7 @@ PropertyValues
 
 * 初始化前
     * BeanPostProcessor#postProcessBeforeInitialization
-    * @PostConstruct    CommonAnnotationBeanPostProcessor#postProcessBeforeInitialization
+        * @PostConstruct    CommonAnnotationBeanPostProcessor#postProcessBeforeInitialization
 * 初始化
     * InitializingBean
     * 自定义初始化方法
@@ -165,13 +181,13 @@ PropertyValues
 * 初始化后
     * BeanPostProcessor#postProcessAfterInitialization
 * 初始化完成
-    * ​	Spring4.1 SmartInitializingSingleton#afterSingletonsInstantiated
+    * Spring4.1 SmartInitializingSingleton#afterSingletonsInstantiated
 
 #### Bean销毁
 
 * 销毁前
     * DestructionAwareBeanPostProcessor#postProcessBeforeDesturction
-    * @PreDestroy    CommonAnnotationBeanPostProcessor#postProcessAfterInitialization
+        * @PreDestroy    CommonAnnotationBeanPostProcessor#postProcessBeforeDesturction
 * 销毁
     * DisposableBean
     * 自定义销毁方法
