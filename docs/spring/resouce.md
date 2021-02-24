@@ -24,14 +24,14 @@ sun.net.www.${protocol}.Handler
 
 内建实现
 
-| 资源来源       | 资源协议      | 实现类                 |
-| -------------- | ------------- | ---------------------- |
-| Bean定义       | 无            | BeanDefinitionResource |
-| 数组           | 无            | ByteArrayResource      |
-| 类路径         | claspath:/    | ClassPathResource      |
-| 文件系统       | file:/        | FileSystemResource     |
-| URL            | URL支持的协议 | UrlResource            |
-| ServletContext | 无            | ServletContextResource |
+| 资源来源       | 资源协议                  | 实现类                 |
+| -------------- | ------------------------- | ---------------------- |
+| Bean定义       | 无                        | BeanDefinitionResource |
+| 数组           | 无                        | ByteArrayResource      |
+| 类路径         | claspath:/                | ClassPathResource      |
+| 文件系统       | file:/                    | FileSystemResource     |
+| URL            | URL支持的协议:http、ftp等 | UrlResource            |
+| ServletContext | 无                        | ServletContextResource |
 
 ### ResourceLoader
 
