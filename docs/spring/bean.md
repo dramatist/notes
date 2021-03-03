@@ -82,11 +82,9 @@ prototype的bean的销毁生命周期回调不会由容器管理
 
 ### 扩展点
 
-Ordered接口或@Order，定义顺序
+Ordered接口或@Order，定义优先级，PriorityOrdered是Ordered的扩展，实现该接口的组件永远比实现Ordered接口的组件优先级高
 
 BeanPostProcessor：通常用来检查接口回调，或用代理包装bean对象
-
-ApplicationContext在生命周期中会将类型为BeanPostProcessor子类的Bean注册，而BeanFactory不会
 
 手动注册的BeanPostProcessor不遵循Order，且永远比自动检测到的BeanPostProcessor先执行，手动注册的执行顺序和注册顺序一致
 

@@ -59,7 +59,7 @@ ApplicationContext除了提供IOC能力，还提供
 
 BeanFactory不对配置格式或注解做限制，而是通过BeanDefinitionReader或BeanPostProcessor进行扩展
 
-ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory实例   代理
+ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory实例   代理/委托
 
 BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
 

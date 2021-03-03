@@ -2,8 +2,6 @@
 
 Java8及之前内部使用char数组，Java9之后使用byte数组，并使用byte coder表示编码
 
-## CharSequence
-
 接口 CharSequence 从 CharBuffer、String、StringBuffer、StringBuilder类中抽象出了字符序列的一般化定义
 
 ## String +
@@ -17,6 +15,8 @@ StringBuilder线程不安全，性能高
 两个字符串常量进行+，编译器进行常量折叠
 
 +操作会被编译器使用StringBuilder的append方法替代，在循环中使用+会导致大量创建StringBuilder
+
+StringJoiner
 
 ## String长度限制
 
