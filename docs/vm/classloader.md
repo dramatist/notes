@@ -1,0 +1,68 @@
+### 类加载器
+
+JVM把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，形成被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制。在Java中，类型的加载、连接和初始化都是在运行期完成的，会有额外的性能开销，但Java动态扩展的语言特性就是依赖运行期动态加载和动态连接这个特点实现的
+
+类的生命周期：加载Loading；验证Verification、准备Preparation、解析Resulution，这三个阶段统称为Linking；初始化Initialization；使用Using；卸载Unloading
+
+#### Loading
+
+找Class，转为Class对象
+
+ClassLoader#loadClass        BootstrapClassLoader----ExtClassLoader----AppClassLoader
+
+双亲委派、负责依赖、缓存加载
+
+BootstrapClassLoader用C++编写，在Java中不存在，不是ClassLoader的子类，无法通过ExtClassLoader.getParent获得，用来加载rt.jar下的类
+
+自定义的类加载器默认父加载器为AppClassLoader，主线程的上下文类加载器是系统类加载器。当新线程创建时，它的上下文类加载器会被设置成为创建该线程的线程的上下文类加载器
+
+一个类被由类加载器和其全限定类名确定，使用两个不同的类加载器可以加载两个全限定类名一样的类
+
+Java9模块化后ExtClassLoader被PlatformClassLoader替换，BootstrapClassLoader用来加载java.base、java.datatransfer、java.desktop、java.instrument、java.logging、java.management、java.management.rmi、java.naming、java.rmi、java.security.sasl、java.xml，其余模块被PlatformClassLoader加载
+
+resolveClass：链接指定的类。这个方法给Classloader用来链接一个类，如果这个类已经被链接过了，那么这个方法只做一个简单的返回。否则，这个类将被按照Java规范中的Execution描述进行链接
+
+#### Verification
+
+验证格式、依赖
+
+####  Preparation
+
+静态字段、方法表
+
+#### Resolution
+
+符号解析为引用
+
+#### Initialization
+
+初始化时机
+
+1. 虚拟机启动时，用户需要指定一个要执行的主类，虚拟机会先初始化这个类
+2. 遇到new、getstatic、putstatic或invokestatic这四条字节码指令时，如果没有初始化就触发
+    1. new实例化对象时
+    2. 读取或设置一个类型的静态字段时，被final修饰，在编译期把结果放入常量池的静态字段除外
+    3. 调用一个类型的静态方法
+3. 初始化类时，父类还未初始化，触发父类初始化
+4. 接口定义了默认方法，如果接口类的实现类发生了初始化，接口要在之前初始化
+5. 使用java.lang.reflect包的方法对类型进行反射调用时，如果类型没有初始化，触发其初始化
+6. 使用JDK7加入的动态语言支持时，如果一个MethodHandle实例最后的解析结果为REF_getStatic、REF_putStatic、REF_invokeStatic、REF_newInvokeSpecial四种类型的方法句柄，并且这个方法句柄对应的类没有进行过初始化，需要触发其初始化
+
+不会初始化
+
+1. 通过子类引用父类的静态字段，会触发父类的初始化，不会触发子类的初始化
+2. 定义对象数组，不会触发该类的初始化
+3. 常量在编译期会放到类的常量池，本质上没有直接访问定义常量的类，不会触发定义常量的类的初始化
+4. 类字面常量不会触发类的初始化
+5. Class.forName指定参数initialize为false
+6. ClassLoader的默认的loadClass方法
+
+如果一个static final值是“编译期常量”，那么这个值不需要对类进行初始化就可以被读取
+
+如果一个static字段不是final的，在对其读取时必须进行类的连接和初始化
+
+#### 自定义ClassLoader
+
+继承ClassLoader，复写findClass(String className)即可
+
+使用defineClass将bytes转为Class装入虚拟机
