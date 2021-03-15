@@ -18,13 +18,9 @@ JSR   Java规范请求  specification
 
 JEP   Java增强提案  enhancement proposal
 
-RMI、JMS、JAX-RS、JAX-WS、Servlet、JDBC、Bean Validation、JPA、JCACHE
-
-JNDI     Java Naming AND Directory Interface
-
 RxJava   Reactive Streams Programming
 
-JavaBean  POJO  VO  DTO 
+JavaBean  POJO  VO  DTO BO
 
 机器语言----->汇编语言---->高级语言
 
