@@ -1,3 +1,26 @@
+### Util
+
+#### 随机数
+
+Random    ThreadLocalRandom    SplittableRandom
+
+System    Runtime
+
+
+
+### 规范
+
+1. 使用y而不是Y进行日期格式化，使用Y时如果当前日期所在周包含下一年的日期，可能年份会被格式化为下一年
+2. 
+
+### Security
+
+Java提供了三种机制确保安全
+
+1. 语言设计特性：数组边界检查，受检的类型转换，无指针等
+2. 访问控制机制：用于控制代码能够执行的操作，如文件访问，网络访问
+3. 代码签名
+
 # 编码
 
 ASCII American Standard Code for Information Interchange，等同于国际标准ISO/IEC646
@@ -17,7 +40,5 @@ UTF-16和UTF-32有大端序和小端序
 0x12345678     大端序：12345678    小端序：78563412
 
 Java及网络传输采用的是大端序，C/C++使用的是小端序
-
-URL编解码：RFC1738规定，除了字母、数字、$-_.+!*'(),、保留字，其它字符需要在url中编码，常用编码方式有escape，URLEncode，encodeURIComponent
 
 properties文件读取编码为IOS 8859-1，读取中文乱码
