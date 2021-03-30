@@ -1,4 +1,4 @@
-# 基本数据类型
+### 基本数据类型
 
 | Primitive | Package   |
 | --------- | --------- |
@@ -26,7 +26,7 @@ IntegerCache的最大值可以通过 -XX:AutoBoxCacheMax=size 来设置
 
 Integer.TYPE == int.class
 
-## 溢出
+### 溢出
 
 使用Math.addExact、subtractExact等xxExact方法
 
@@ -37,13 +37,13 @@ Integer.TYPE == int.class
 | a < b     |      |      |      |      |
 | a - b < 0 |      |      |      |      |
 
-## 浮点数
+### 浮点数
 
 IEEE 754标准
 
 存在很大的精度问题
 
-## BigDecimal
+### BigDecimal
 
 scale：小数点右边的位数
 
@@ -57,13 +57,13 @@ BigDecimal的equals和hashcode方法会比较value和scale，建议使用compare
 
 BigDecimal在放入hash结构使用时，应stripTralingZeros，确保value相同时，scale也相同
 
-# String
+### String
 
 Java8及之前内部使用char数组，Java9之后使用byte数组，并使用byte coder表示编码
 
 接口 CharSequence 从 CharBuffer、String、StringBuffer、StringBuilder类中抽象出了字符序列的一般化定义
 
-## String +
+#### 拼接
 
 String不可变，每次修改都会创建新的对象
 
@@ -77,7 +77,7 @@ StringBuilder线程不安全，性能高
 
 StringJoiner
 
-## String长度限制
+#### String长度限制
 
 运行时限制：数组最大长度为Integer#MAX_VALUE
 
@@ -85,7 +85,7 @@ StringJoiner
 
 javac限制：javac在长度大于等于65535时报错
 
-## String不可变
+#### String不可变
 
 缓存hash值，String内部有个变量hash保存hash值
 
@@ -93,13 +93,13 @@ String常量池的需要
 
 线程安全
 
-## substring
+#### substring
 
 JDK 6 中 substring方法不生成新的字符数组，而是共用，只改变offset和count，导致内存泄漏
 
 JDK 7 中 substring方法生成新的字符数组，解决了内存泄漏问题
 
-## replace  replaceAll  replaceFirst
+#### replace  replaceAll  replaceFirst
 
 replace(CharSequence target, CharSequence replacement) ，用replacement替换所有的target，两个参数都是字符串
 
@@ -107,7 +107,7 @@ replaceAll(String regex, String replacement) ，用replacement替换所有的reg
 
 replaceFirst(String regex, String replacement) ，基本和replaceAll相同，区别是只替换第一个匹配项
 
-## trim  strip
+#### trim  strip
 
 移除首尾空白字符
 
@@ -117,17 +117,15 @@ trim移除的空白字符指的是指ASCII值小于或等于32的任何字符
 
 JDK11中新增了strip方法，会删除Unicode中的空白字符，比trim更通用
 
-## 格式化输出
+#### 格式化输出
 
-JDK5 引入了**fotmat**方法，可用于 `PrintStream` 或者 `PrintWriter` 对象
+JDK5 引入了**fotmat**方法，在格式化浮点数时，默认使用四舍五入
 
-String.format在格式化浮点数时，默认使用四舍五入
-
-### Fomatter类
+#### Fomatter类
 
 在 Java 中，所有的格式化功能都是由 `java.util.Formatter` 类处理的
 
-### 格式化修饰符
+#### 格式化修饰符
 
 %\[argument_index$\]  \[flags\]  \[width\]  \[.precision\]  conversion 
 
@@ -153,7 +151,29 @@ Conversion:
 |  n   | 换行               |
 |  %   | 字面值“%”          |
 
-# 运算符
+#### 编码
+
+ASCII American Standard Code for Information Interchange，等同于国际标准ISO/IEC646
+
+Unicode：为每一个字符定义一个码点(code point)，属于编码字符集，使用4个字节，但未规定如何存储编码
+
+UTF-8：使用一至四个字节进行编码存储，根据具体字符的编码确定
+
+UTF-16：使用两个或四个字节进行编码存储
+
+UTF-32：使用四个字节进行编码存储
+
+UTF-16和UTF-32有大端序和小端序
+
+在几乎所有机器上，多字节对象存储空间都是连续的，字节的顺序分为大端序Big Endian和小端序Little Endian，大端序及低地址端存放高位字节，小端序相反
+
+0x12345678     大端序：12345678    小端序：78563412
+
+Java及网络传输采用的是大端序，C/C++使用的是小端序
+
+properties文件读取编码为IOS 8859-1，读取中文乱码
+
+### 运算符
 
 * 算术运算符
 * 关系运算符
@@ -174,7 +194,7 @@ a += 2.2;      //yes  ====  a = (float)(a + 2.2)
 a = a + 2.2    //no
 ```
 
-### Conditional Operator
+#### Conditional Operator
 
 当第二位和第三位操作数的类型相同时，则三目运算符表达式的结果和这两位操作数的类型相同
 
@@ -188,7 +208,7 @@ JDK8 将条件表达式分为三类：
 
 除了以上两种以外的表达式就是引用表达式
 
-## 控制流程
+### 控制流程
 
 if、else、while、do-while、for、foreach、break、continue、return、switch
 

@@ -1,10 +1,10 @@
-## 封装
+### 封装
 
 访问控制：public  protected  default  private
 
 包：package
 
-## 继承
+### 继承
 
 继承：继承有访问权限的字段及方法，包括静态字段及静态方法
 
@@ -30,7 +30,7 @@ this()和super()必须放在构造函数第一行，但两者不能同时用，t
 6. 子类实例初始化
 7. 子类构造器
 
-## 多态
+### 多态
 
 同一操作作用于不同对象，有不同的解释，产生不同的结果
 
@@ -44,7 +44,7 @@ this()和super()必须放在构造函数第一行，但两者不能同时用，t
 
 除了 static 和 final 方法（private 方法也是隐式的 final）外，其他所有方法都是后期绑定
 
-## 接口
+### 接口
 
 方法默认 public abstract
 
@@ -62,7 +62,7 @@ JDK9:
 
 私有方法 private
 
-## 内部类
+### 内部类
 
 内部类自动拥有对其外部类所有成员的访问权，内部类对象会秘密地捕获一个指向那个外部类对象的引用
 
@@ -84,9 +84,9 @@ class Inherit extends Outer.Inner{
 
 普通内部类、静态内部类、局部内部类、匿名内部类、lambda多次调用都是同一个Class对象，lambda并不会生成class文件
 
-## Object
+### Object
 
-### equals  hashcode
+#### equals  hashcode
 
 equals特性
 
@@ -106,9 +106,9 @@ hashCode() 和 equals() 必须能够允许类型在hash数据结构中正常工�
 
 事实证明，质数实际上并不是散列桶的理想容量。近来，Java的散列桶都使用2的n次方。
 
-对现代的处理器来说，除法与求余数是最慢的操作。使用2的n次方长度的散列表，可用掩码代替除法。当容量为2的n次方时，hash & (length - 1) == hash % length 
+现代处理器中除法与求余数是最慢的操作。当length为2的n次方时，hash & (length - 1) == hash % length 
 
-### clone
+#### clone
 
 必须实现了Cloneable的类才能clone
 
@@ -116,7 +116,7 @@ hashCode() 和 equals() 必须能够允许类型在hash数据结构中正常工�
 
 深拷贝：创建一个新对象，并且原对象内非基本类型的变量也会clone
 
-### methods
+#### methods
 
 equals
 
@@ -132,13 +132,11 @@ notify
 
 notifyAll
 
-
-
 clone
 
 finalize
 
-# 枚举
+### 枚举
 
 编译器为你创建一个继承自java.lang.Enum的final类，但其中可以有抽象方法，通过实例来实现抽象方法
 
@@ -160,7 +158,7 @@ EnumSet
 
 EnumMap
 
-## 方法传值策略
+### 方法传值策略
 
 编程语言中需要进行方法间的参数传递(实参传递给形参)，这个传递的策略叫做求值策略，基本分为严格求值和非严格求值，大多数编程语言对函数参数传递采用的都是严格求值
 
