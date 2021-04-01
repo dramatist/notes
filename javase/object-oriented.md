@@ -118,24 +118,6 @@ hashCode() 和 equals() 必须能够允许类型在hash数据结构中正常工�
 
 #### methods
 
-equals
-
-hashcode
-
-toString
-
-getClass
-
-wait
-
-notify
-
-notifyAll
-
-clone
-
-finalize
-
 ### 枚举
 
 编译器为你创建一个继承自java.lang.Enum的final类，但其中可以有抽象方法，通过实例来实现抽象方法
