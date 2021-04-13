@@ -1,4 +1,4 @@
-# Java
+### Java
 
 2004  Java5：enum、generic、annotation、auto-boxing
 
@@ -20,8 +20,6 @@ JEP   Java增强提案  enhancement proposal
 
 RxJava   Reactive Streams Programming
 
-JavaBean  POJO  VO  DTO BO
-
 机器语言----->汇编语言---->高级语言
 
 面向过程、面向对象、面向函数
@@ -34,14 +32,14 @@ JavaBean  POJO  VO  DTO BO
 
 Java是一种面向对象、静态类型、编译执行、有虚拟机和GC的跨平台的编程语言
 
-# 生态
+### 生态
 
 * Java语言
 * 虚拟机
 * Class文件格式
 * Java类库及第三方类库
 
-# 优势
+### 优势
 
 * Run anywhere
 * 自动内存管理和访问机制，避免了大多数内存泄漏和指针越界的问题

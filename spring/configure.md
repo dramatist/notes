@@ -2,9 +2,9 @@
 
 * BeanDefinition配置
     * 基于XML/Properties
+    * 基于Groovy DSL
     * 基于Java注解
     * 基于JavaAPI
-    * 基于Groovy DSL
 * 容器配置
     * 基于XML
     * 基于Java注解
@@ -95,6 +95,4 @@ AnnotatedBeanDefinitionReader
 * Bean范围解析：ScopeMetadataResolver
 * BeanDefinition解析：内部
 * BeanDefinition处理：AnnotationConfigUtils.processCommonDefinitionAnnotations
-
-BeanDefinitionRegistry
 

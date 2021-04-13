@@ -62,13 +62,19 @@ invokeDynamic：JDK7新增指令，是实现动态语言支持的升级，也是
 
 -Xmn  年轻代大小，等价于 -XX:NewSize，使用G1垃圾收集器不应该设置该选项。官方建议设置为 -Xmx 的 1/2 ~ 1/4
 
--Xss    设置每个线程栈的字节数，与\- XX:ThreadStackSize=等价
+-Xss    设置每个线程栈的字节数
 
 -XX:NewRatio  设置年轻代(包括Eden和两个Survivor区)与年老代的比值
 
 -XX:SurvivorRatio  设置年轻代中Eden区与Survivor区的大小比值
 
--XX:MaxDirectMemorySize，系统可以使用的最大堆外内存
+-XX:MaxMetaspaceSize  设置元空间最大值
+
+-XX:MetaspaceSize  设置元空间初始值
+
+-XX:MinMetaspaceFreeRatio  -XX:MaxMetaspaceFreeRatio 设置元空间最小或最大剩余容量的百分比
+
+-XX:MaxDirectMemorySize，系统可以使用的最大堆外内存，默认与Java堆最大值一致
 
 -XX:+HeapDumpOnOutOfMemoryError
 

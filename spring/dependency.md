@@ -119,7 +119,7 @@ AbstractApplicationContext#prepareBeanFactory   内建ResolvableDependency
 
 1. 实现ApplicationContextAware，调用getBean方法
 2. ObjectFactory/ObjectProvider
-3. Lookup Method Injection：Cglib字节码增强，不能和Factory method和@Bean兼容
+3. Lookup Method Injection：Cglib字节码增强，不能和factory method和@Bean兼容，此时bean的创建不受容器控制
 
 <public|protected>  [abstract]  \<return-type\>  methodName(no-arguments);
 
