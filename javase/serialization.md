@@ -1,12 +1,10 @@
-# 序列化
-
-Serialize
+### 序列化
 
 对象序列化常用于网络传输、RMI、RPC中，将对象转为可传输的格式，Java序列化将对象转为字节序列
 
 Java序列化机制可以序列Array、Enum和Serializable的对象
 
-ObjectOutputStream   ObjectInputStream    
+ObjectOutputStream   ObjectInputStream
 
 transient 阻止字段被自动序列化
 

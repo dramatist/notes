@@ -1,18 +1,59 @@
-![spring-overview](../image/spring-overview.png)
-
 ![Spring 核心特性](../image/Spring 核心特性.png)
 
 
 
 ![Spring 核心价值](../image/Spring 核心价值.png)
 
-## 为什么要使用IOC容器
+### 核心特性
+
+1. IOC
+2. AOP
+3. i18n
+4. Events
+5. Resources
+6. Validation
+7. Data Binding
+8. Type Conversion
+9. Spring EL
+
+### 数据存储
+
+1. JDBC
+2. 事务抽象
+3. DAO支持
+4. O/R Mapping
+5. XML Marshalling
+
+### Web
+
+* Servlet
+    * MVC
+    * WebSocket
+    * SockJS
+* Reactive
+    * WebFlux
+    * WebClient
+    * WebSocket
+
+### 技术整合
+
+1. 远程调用
+2. JMS
+3. JMX
+4. JCA
+5. 本地任务Tasks
+6. 本地调度Scheduling
+7. 缓存抽象Caching
+8. 测试
+9. Java邮件客户端Email
+
+### 为什么要使用IOC容器
 
 对象通过构造器参数、setter方法、工厂方法定义其所需依赖，容器在创建对象时注入依赖，而非手动提供依赖
 
 代码整洁，解耦，易测试
 
-## IOC容器职责
+### IOC容器职责
 
 * 依赖处理
     * 依赖查找
@@ -26,14 +67,14 @@
     * 托管的资源
     * 外部化配置
 
-## 轻量级容器
+### 轻量级容器
 
 1. 可以管理代码
 2. 快速启动
 3. 不需要特殊的配置
 4. 最小的API依赖
 
-## Spring作为IOC容器的优势
+### Spring作为IOC容器的优势
 
 1. 典型的IOC管理，依赖查找和依赖注入
 2. AOP抽象
@@ -43,7 +84,7 @@
 6. 第三方整合
 7. 更好的测试性
 
-## BeanFactory和ApplicationContext
+### BeanFactory和ApplicationContext
 
 BeanFactory提供了先进的配置机制，能管理所有类型的对象
 
