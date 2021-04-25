@@ -50,7 +50,7 @@ getBean线程安全，在操作中会加互斥锁
     * 延迟注入  ObjectFactory/ObjectProvider
     * Setter注入、Constructor注入、Field注入、方法注入、Aware回调注入、Autowiring
 
-注入在postProcessProperties执行，早于setter注入，也早于生命周期回调，如@PostConstruct
+注入在postProcessProperties执行，早于setter注入，也早于生命周期回调
 
 使用构造器注入，并想通过名字匹配时，需要开启-parameters，会保留方法参数名，也可使用@ConstructorProperties
 
@@ -80,17 +80,6 @@ AutowireCandidateResolver
 | ResolvableDependency | 否       | 否           | 无         | 注入       |
 | 外部化配置@Value     | 否       | 否           | 无         | 注入       |
 
-AbstractApplicationContext#preparaBeanFactory & initMessageSource ...   内建Singleton
-
-| Bean名称                    | Bean实例                    | 使用场景             |
-| --------------------------- | --------------------------- | -------------------- |
-| environment                 | Environment                 | Profile & Properties |
-| systemProperties            | java.util.Properties        | JVM参数              |
-| systemEnvironment           | java.util.Map               | 系统环境变量         |
-| messageSource               | MassageSource               | 国际化文案           |
-| lifecycleProcessor          | LifecycleProcessor          | Lifecycle Bean处理器 |
-| applicationEventMulticaster | ApplicationEventMulticaster | Spring事件广播       |
-
 AnnotationConfigUtils#registerBeanPostProcessor   内建BeanDefinition
 
 | Bean名称                                                     | Bean实例                               | 使用场景                                             |
@@ -101,6 +90,17 @@ AnnotationConfigUtils#registerBeanPostProcessor   内建BeanDefinition
 | org.springframework.context.event.<br>internalEventListenerProcessor | EventListenerMethodProcessor           | 处理标注 @EventListener 的 Spring 事件监听方法       |
 | org.springframework.context.event.<br>internalEventListenerFactory | DefaultEventListenerFactory            | @EventListener 事件监听方法适配为ApplicationListener |
 | org.springframework.context.annotation.<br>internalPersistenceAnnotationProcessor | PersistenceAnnotationBeanPostProcessor | JPA注解处理                                          |
+
+AbstractApplicationContext#preparaBeanFactory & initMessageSource ...   内建Singleton
+
+| Bean名称                    | Bean实例                    | 使用场景             |
+| --------------------------- | --------------------------- | -------------------- |
+| environment                 | Environment                 | Profile & Properties |
+| systemProperties            | java.util.Properties        | JVM参数              |
+| systemEnvironment           | java.util.Map               | 系统环境变量         |
+| messageSource               | MassageSource               | 国际化文案           |
+| lifecycleProcessor          | LifecycleProcessor          | Lifecycle Bean处理器 |
+| applicationEventMulticaster | ApplicationEventMulticaster | Spring事件广播       |
 
 AbstractApplicationContext#prepareBeanFactory   内建ResolvableDependency  
 

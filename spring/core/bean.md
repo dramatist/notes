@@ -5,6 +5,8 @@
 3. Bean依赖
 4. 属性配置，如线程池大小、连接数等
 
+Class、Name、Scope、Constructor-args、Properties、Autowiring-mode、Lazy-init、Init-method、Destory-method
+
 ### BeanDefinition注册及实例化Instantiation
 
 1. XML
@@ -98,7 +100,7 @@ Bean(Factory)PostProcessor设置lazy-init会被忽略
 
 面向资源：XML、Properties、Groovy
 
-面向注解：@Componet、@Bean...
+面向注解：@Componet、@Bean
 
 面向API：BeanDefinitionBuilder / AbstractBeanDefinition
 
@@ -189,6 +191,10 @@ PropertyValues
 * 销毁
     * DisposableBean
     * 自定义销毁方法
+
+
+
+![beans-class](../../image/spring-beans.jpg)
 
 @Component
 

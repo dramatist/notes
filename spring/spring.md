@@ -88,19 +88,11 @@
 
 BeanFactory提供了先进的配置机制，能管理所有类型的对象
 
-ApplicationContext除了提供IOC能力，还提供
-
-* 面向切面 AOP
-* 配置元信息 Configuration Metadata
-* 资源管理 Resources
-* 事件 Events
-* 国际化 i18n  MessageSource
-* 注解 Annotations
-* Environment抽象
+ApplicationContext除了提供IOC能力，还提供了更多企业特性
 
 BeanFactory不对配置格式或注解做限制，而是通过BeanDefinitionReader或BeanPostProcessor进行扩展
 
-ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory实例   代理/委托
+ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory实例
 
 BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
 
