@@ -22,27 +22,6 @@ DCL：线程安全、延迟加载、性能较高
 
 枚举：线程安全、非延迟加载、性能高
 
-#### DCL
-
-```java
-public class Singleton {
-    private Singleton() {}
-    private static volatile Singleton instance;
-    public static Singleton getInstance() {
-        Singleton local = instance;   //why
-        if (local == null) {
-            synchronized (Singleton.class) {
-                local = instance;
-                if (local == null) {
-                    instance = local = new Singleton();
-                }
-            }
-        }
-        return local;
-    }
-}
-```
-
 #### 单例存在的问题
 
 1. 对OOP特性支持不友好
