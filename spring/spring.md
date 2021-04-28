@@ -97,3 +97,57 @@ ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory�
 BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
 
 BeanPostProcessor和BeanFactoryPostProcessor，BeanFactory需要手动注册，ApplicationContext则是自动注册
+
+### 模块
+
+ioc
+
+* spring-core
+* spring-beans
+* spring-context
+* spring-expression
+* spring-context-indexer
+* spring-context-support
+
+aop
+
+* spring-aop
+* spring-aspects
+
+web
+
+* spring-web
+* spring-webmvc
+* spring-webflux
+* spring-websocket
+
+data access
+
+* spring-tx
+* spring-jdbc
+* spring-r2dbc
+* spring-orm
+
+message
+
+* spring-jms
+* spring-messaging
+
+logging
+
+* spring-jcl
+
+test
+
+* spring-test
+
+
+
+spring-instrument
+
+spring-oxm
+
+
+
+
+

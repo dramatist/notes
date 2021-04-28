@@ -7,6 +7,23 @@
 
 Class、Name、Scope、Constructor-args、Properties、Autowiring-mode、Lazy-init、Init-method、Destory-method
 
+GenericBeanDefinition：通用BeanDefinition
+
+RootBeanDefinition：无parent的或合并后的BeanDefinition
+
+AnnotatedBeanDefinition：注解标注的BeanDefinition
+
+Bean属性元信息：PropertyValues
+
+* 可变实现：MutablePropertyValues
+* 内部元素：PropertyValue
+
+Bean附加信息：
+
+* AttributeAccessor：BeanDefinition的辅助信息
+
+* BeanMetadataElement：BeanDefinition的Source
+
 ### BeanDefinition注册及实例化Instantiation
 
 1. XML
@@ -114,7 +131,18 @@ BeanNameGenerator
 
 BeanDefinitionHolder
 
-#### Bean注册
+XmlBeanDefinitionReader
+
+PropertiesBeanDefinitionReader
+
+AnnotatedBeanDefinitionReader
+
+* 条件评估@Conditional：ConditionEvaluator
+* Bean范围解析：ScopeMetadataResolver
+* BeanDefinition解析：内部
+* BeanDefinition处理：AnnotationConfigUtils.processCommonDefinitionAnnotations
+
+#### BeanDefinition注册
 
 BeanDefinitionRegistry#registerBeanDefinition
 
@@ -195,20 +223,4 @@ PropertyValues
 
 
 ![beans-class](../../image/spring-beans.jpg)
-
-@Component
-
-@Bean
-
-@Lazy
-
-@Description
-
-@Scope
-
-@DependsOn
-
-@Primary
-
-@Qualifier
 

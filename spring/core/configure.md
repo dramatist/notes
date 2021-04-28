@@ -1,4 +1,4 @@
-## 配置
+### 配置
 
 * BeanDefinition配置
     * 基于XML/Properties
@@ -11,39 +11,6 @@
     * 基于JavaAPI
 * 外部化配置
     * 基于Java注解
-
-### 配置元信息
-
-Bean配置元信息：BeanDefinition
-
-Bean属性元信息：PropertyValues
-
-外部化配置元信息：PropertySource
-
-Profile元信息：@Profile
-
-IOC容器元信息
-
-### BeanDefinition
-
-GenericBeanDefinition：通用BeanDefinition
-
-RootBeanDefinition：无parent的或合并后的BeanDefinition
-
-AnnotatedBeanDefinition：注解标注的BeanDefinition
-
-### Bean属性元信息
-
-PropertyValues
-
-* 可变实现：MutablePropertyValues
-* 内部元素：PropertyValue
-
-附加信息：
-
-* AttributeAccessor：BeanDefinition的辅助信息
-
-* BeanMetadataElement：BeanDefinition的Source
 
 ### 外部化配置
 
@@ -82,17 +49,4 @@ Context
 * property-override
 * mbean-export
 * mbean-server
-
-### BeanDefinition解析
-
-XmlBeanDefinitionReader
-
-PropertiesBeanDefinitionReader
-
-AnnotatedBeanDefinitionReader
-
-* 条件评估@Conditional：ConditionEvaluator
-* Bean范围解析：ScopeMetadataResolver
-* BeanDefinition解析：内部
-* BeanDefinition处理：AnnotationConfigUtils.processCommonDefinitionAnnotations
 
