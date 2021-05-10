@@ -1,17 +1,3 @@
-### 配置
-
-* BeanDefinition配置
-    * 基于XML/Properties
-    * 基于Groovy DSL
-    * 基于Java注解
-    * 基于JavaAPI
-* 容器配置
-    * 基于XML
-    * 基于Java注解
-    * 基于JavaAPI
-* 外部化配置
-    * 基于Java注解
-
 ### 外部化配置
 
 注解

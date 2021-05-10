@@ -1,7 +1,3 @@
-### LoadTimeWeaver
-
-@EnableLoadTimeWeaving
-
 ### 容器Lifecycle
 
 * 启动   AbstractApplicationContext#refresh

@@ -50,9 +50,16 @@ getBean线程安全，在操作中会加互斥锁
     * 延迟注入  ObjectFactory/ObjectProvider
     * Setter注入、Constructor注入、Field注入、方法注入、Aware回调注入、Autowiring
 
-注入在postProcessProperties执行，早于setter注入，也早于生命周期回调
-
 使用构造器注入，并想通过名字匹配时，需要开启-parameters，会保留方法参数名，也可使用@ConstructorProperties
+
+#### Autowiring
+
+* no
+* byName
+* byType
+* constructor
+
+不能注入primitive、String、Class、这些类型的数组
 
 #### 依赖处理
 
@@ -61,15 +68,6 @@ DefaultListableBeanFactory#resolveDependency
 DependencyDescriptor
 
 AutowireCandidateResolver
-
-#### autowiring
-
-* no
-* byName
-* byType
-* constructor
-
-不能注入primitive、String、Class、这些类型的数组
 
 ### 依赖来源
 
@@ -172,5 +170,4 @@ BeanDefinitionStoreException
 
 
  
-
 

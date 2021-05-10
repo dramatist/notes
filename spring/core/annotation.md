@@ -1,21 +1,12 @@
 ### Annotation
 
-| Spring                   | Jakarta           |
-| ------------------------ | ----------------- |
-| @Autowired               | @Inject/@Resource |
-| @Order                   | @Priority         |
-| @Qualifier               | @Named            |
-| @Component               | @ManagedBean      |
-| @Scope("singleton")      | @Singleton        |
-| @ComponentScan           |                   |
-| @Configuration           |                   |
-| @Value                   |                   |
-| @Import                  |                   |
-| @ImportResources         |                   |
-| @ConfigurationProperties |                   |
-| @Conditional             |                   |
+@Autowired  @Inject  @Value
 
-注解注入在XML注入之前
+@Resource  @PostConstruct  @PreDestory
+
+@Component
+
+@Configuration
 
 @Autowired不支持静态字段、方法
 
@@ -24,8 +15,6 @@
 @Autowired、@Inject、@Value、@Resource不能被自定义BeanPostProcessor或BeanFactoryPostProcessor处理
 
 **CustomAutowireConfigurer **    **AutowireCandidateResolver**
-
-@Resource对于BeanFactory、ApplicationContext、Environment、ResourceLoader、ApplicationEventPublisher、MessageSource的注入类似Autowired，不根据名称
 
 @Resource只能作用于field或只有一个参数的方法
 
