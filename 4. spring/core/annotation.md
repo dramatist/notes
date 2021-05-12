@@ -22,4 +22,6 @@
 
 @Configuration中的声明了@Bean的方法不能为private或final（Configuration类会被cglib增强）
 
+@PropertySource必须有@Configuration
+
 @Bean定义的bean中如果有shutdown或close方法，会自动配置为destruction回调

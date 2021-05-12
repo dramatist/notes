@@ -23,3 +23,17 @@ Spring StandardEnvironment：System.getProperties和System.getEnv
 PropertySource的解析是层次性的，高层次优先
 
 @PropertySource导入的文件，若有同名属性，最后加载的优先
+
+### 外部化配置
+
+注解
+
+- @PropertySource
+- @PropertySources
+
+API
+
+- PropertySource
+- PropertySources
+
+未提供Yaml直接支持，可使用YamlProcessor

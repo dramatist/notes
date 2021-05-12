@@ -5,8 +5,6 @@
 3. Bean依赖
 4. 属性配置，如线程池大小、连接数等
 
-Class、Name、Scope、Constructor-args、Properties、Autowiring-mode、Lazy-init、Init-method、Destory-method
-
 GenericBeanDefinition：通用BeanDefinition
 
 RootBeanDefinition：无parent的或合并后的BeanDefinition

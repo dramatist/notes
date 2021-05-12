@@ -1,19 +1,3 @@
-### 外部化配置
-
-注解
-
-* @PropertySource
-
-* @PropertySources
-
-API
-
-* PropertySource
-
-* PropertySources
-
-未提供Yaml直接支持，可使用YamlProcessor
-
 ### 容器配置元信息
 
 Beans
@@ -36,3 +20,8 @@ Context
 * mbean-export
 * mbean-server
 
+### 容器Lifecycle
+
+* 启动   AbstractApplicationContext#refresh
+* 运行
+* 停止  AbstractApplicationContext#close
