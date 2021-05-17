@@ -22,4 +22,4 @@ C1又叫做Client编译器，面向的是对启动性能有要求的程序，优
 
 #### AOT
 
-<img src="../image/image-20210407125103063.png" alt="image-20210407125103063" style="zoom:50%;" />
+<img src="../.image/image-20210407125103063.png" alt="image-20210407125103063" style="zoom:50%;" />

@@ -4,7 +4,7 @@ Java标准资源定位
 
 | 职责       | 说明                                      |
 | ---------- | ----------------------------------------- |
-| 面向资源   | 文件系统、artifact、远程资源（HTTP、FTP） |
+| 面向资源   | 文件系统、artifact、远程资源(HTTP、FTP)   |
 | API整合    | ClassLoader#getResource、File、URL        |
 | 资源定位   | URL、URI                                  |
 | 面向流存储 | URLConnection                             |
