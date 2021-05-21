@@ -1,11 +1,11 @@
-## 集合
-
 Java集合类库采用“持有对象”（holding objects）的思想，将其分为两个不同的概念，表示为类库的基本接口：
 
-1. **集合（Collection）** ：一个独立元素的序列，这些元素都服从一条或多条规则。**List** 必须以插入的顺序保存元素， **Set** 不能包含重复元素， **Queue** 按照*排队规则*来确定对象产生的顺序
-2. **映射（Map）** ： 一组成对的“键值对”对象，允许使用键来查找值。 
+1. **集合（Collection）** ：一个独立元素的序列，这些元素都服从一条或多条规则
+2. **映射（Map）** ： 一组成对的“键值对”对象，允许使用键来查找值
 
 ### List
+
+以插入顺序保存元素
 
 1. ArrayList：擅长随机访问元素，但在插入和删除元素时速度较慢。
 2. LinkedList：它通过较低的代价进行插入和删除操作，提供了优化的顺序访问。 
@@ -18,11 +18,15 @@ retainAll交集    removeAll差集    addAll补集
 
 ### Set
 
+不能包含重复元素
+
 * HashSet：底层HashMap
 * LinkedHashSet：底层LinkedHashMap
 * TreeSet：红黑树
 
 ### Queue
+
+按照排队规则来确定对象产生的顺序
 
 * ArrayDeque
 * LinkedList
@@ -65,5 +69,5 @@ Java 的 **Iterator** 只能单向移动。
 
 for-in 可接收数组或实现了Itreable接口的类
 
-<img src="../image/image-20201203002123305.png" alt="image-20201203002123305" style="zoom:30%;" />
+<img src="../.image/image-20201203002123305.png" alt="image-20201203002123305" style="zoom:30%;" />
 
