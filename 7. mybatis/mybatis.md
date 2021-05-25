@@ -1,10 +1,10 @@
+[Mybatis官网](https://mybatis.org/mybatis-3/zh/index.html)
+
 一款优秀的持久层ORM框架
 
 支持自定义 SQL、存储过程以及高级映射，免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作
 
 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO为数据库中的记录
-
-
 
 SqlSessionFactoryBuilder
 
@@ -14,7 +14,7 @@ SqlSession 线程不安全
 
 ### Configuration
 
-规定了XML中属性的顺序，配置需要按顺序写
+Mybatis规定了XML中属性的顺序，配置需要按顺序写
 
 1. properties
     * 首先读取在 properties 元素体内指定的属性
@@ -40,14 +40,29 @@ SqlSession 线程不安全
 
 ### 映射文件
 
-resultMap
+元素
 
-select
+* resultMap
+    * 列映射：id、result
+    * 一对一：association
+    * 一对多：collection
+* select
+* insert
+* update
+* delete
+* sql
+* cache
+* cache-ref
 
-insert
+#{}和${}区别：#{}会加""，有效防止大部分SQL注入，类似PreparedStatement
 
-update
+### 分页
 
-delete
+1. limit
+2. rowBounds
+3. pageHelper
 
-sql
+### 缓存
+
+### 动态SQL
+
