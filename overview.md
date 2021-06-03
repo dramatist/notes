@@ -54,11 +54,11 @@ Run anywhere
 
 ### JDK  JRE  JVM
 
-JDK：
+JDK：Java开发工具集，JRE+开发工具(javac、javap、jstat、jmap等)+Java基础类库
 
-JRE：
+JRE：Java运行时环境，JVM标准实现+Java核心类库
 
-JVM：
+JVM：Java虚拟机
 
 ### 面向对象 面向过程
 

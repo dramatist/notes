@@ -45,6 +45,13 @@
 8. 测试
 9. Java邮件客户端Email
 
+### 测试
+
+* Mock Objects
+* TextContext Framework
+* SpringMVC Test
+* WebTestClient
+
 ### IOC容器职责
 
 * 依赖处理
@@ -58,29 +65,6 @@
     * 容器
     * 托管的资源
     * 外部化配置
-
-### 为什么要使用IOC容器
-
-对象通过元信息定义其所需依赖，容器在创建对象时注入依赖，而非手动提供依赖
-
-代码整洁，解耦，易测试
-
-### Spring作为IOC容器的优势
-
-1. 典型的IOC管理，依赖查找和依赖注入
-2. AOP抽象
-3. 事务抽象
-4. 事件机制
-5. SPI扩展
-6. 第三方整合
-7. 更好的测试性
-
-### 轻量级容器
-
-1. 可以管理代码
-2. 快速启动
-3. 不需要特殊的配置
-4. 最小的API依赖
 
 ### BeanFactory和ApplicationContext
 
@@ -100,17 +84,17 @@ BeanPostProcessor和BeanFactoryPostProcessor，BeanFactory需要手动注册，A
 
 ioc
 
-* spring-core
-* spring-beans
-* spring-context
-* spring-expression
+* spring-core 资源管理、泛型处理等
+* spring-beans 依赖查找、依赖注入相关
+* spring-context 应用上下午相关，注解驱动、事件驱动、模块驱动等
+* spring-expression  Spring表达式相关
+* spring-context-support 提供Cache、Mail、Schedule等支持
 * spring-context-indexer
-* spring-context-support
 
 aop
 
-* spring-aop
-* spring-aspects
+* spring-aop  Spring AOP处理
+* spring-aspects  与AspectJ整合
 
 web
 
@@ -139,11 +123,13 @@ test
 
 * spring-test
 
+javaagent
 
+* spring-instrument
 
-spring-instrument
+xml marshal
 
-spring-oxm
+* spring-oxm
 
 
 
