@@ -21,3 +21,49 @@
     一个类被AOP织入增强后，产生一个结果代理类
 8. Aspect(切面) 
     切入点和通知(引介)的结合
+
+### Method Injection
+
+单例Bean A依赖多例Bean B，A每次需要获取一个新B
+
+解决方法：
+
+1. 实现ApplicationContextAware，调用getBean方法
+2. ObjectFactory/ObjectProvider
+3. Lookup Method Injection：Cglib字节码增强，不能和factory method和@Bean兼容，此时bean的创建不受容器控制
+
+<public|protected>  [abstract]  \<return-type\>  methodName(no-arguments);
+
+```java
+public abstract class CommandManager {
+    public Object process(Object commandState) {
+        Command command = createCommand();
+        command.setState(commandState);
+        return command.execute();
+    }
+	@Lookup("myCommand")
+    protected abstract Command createCommand();
+}
+```
+
+```xml
+<bean id="myCommand" class="AsyncCommand" scope="prototype" />
+<bean id="commandManager" class="CommandManager">
+    <lookup-method name="createCommand" bean="myCommand"/>
+</bean>
+```
+
+#### Method Replacer
+
+通过实现MethodReplacer的类替换任意方法
+
+```xml
+<bean id="myValueCalculator" class="MyValueCalculator">
+    <replaced-method name="computeValue" replacer="replacementComputeValue">
+        <arg-type>java.lang.String</arg-type>
+    </replaced-method>
+</bean>
+<bean id="replacementComputeValue" class="ReplacementComputeValue"/>
+```
+
+### 

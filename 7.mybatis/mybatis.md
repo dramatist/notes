@@ -14,7 +14,7 @@ SqlSession 线程不安全
 
 ### Configuration
 
-Mybatis规定了XML中属性的顺序，配置需按顺序声明
+Mybatis规定了XML中属性的顺序，配置需按顺序声明，对应Configuration类
 
 1. properties
     * 首先读取在 properties 元素体内指定的属性
@@ -32,7 +32,7 @@ Mybatis规定了XML中属性的顺序，配置需按顺序声明
 5. objectFactory
     * 创建结果对象的新实例时，会使用一个ObjectFactory实例来完成实例化工作，可通过DefaultObjectFactory扩展
 6. plugin
-7. environments
+7. environments，对应Environment类
     * transactionManager：JDBC和MANAGED(几乎没做什么配置)，Spring环境下无需配置，会使用自带的事务管理器覆盖
     * dataSource：UNPOOLED、POOLED、JNDI(过时)，可通过扩展DataSourceFactory或UnpooledDataSourceFactory使用自定义数据源实现
 8. databaseIdProvider
